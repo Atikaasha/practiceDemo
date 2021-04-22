@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+        Box Example
+        </title>
+        <style>
+            .box{
+                height: 100px;
+                width: 100px;
+                border: 2px solid black;
+                display: inline-block;
+            }
+        </style>
+    </head>
+<body>
+        <div class="box" ondragover="nDrop()" ondrop="Drop()">
+            <div id="d" draggable="true" ondragstart="dStart()">
+                Drag Me
+            </div>
+        </div>
+        <div class="box" draggable="true" ondrop="Drop()" ondragover="nDrop()"></div>
+<script>
+    var holder;
+function nDrop(){
+    event.preventDefault();
+}
+    function dStart(){
+        holder = event.target;
+    }
+    function Drop(){
+        //if(event.target.className=="box"){
+            event.target.appendChild(holder);
+        //}
+    }
+</script>
+
+</body>
+</html>
